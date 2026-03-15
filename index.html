@@ -45,6 +45,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .instrucao p{font-size:12px;color:var(--verde-esc);line-height:1.5}
 .btn{width:100%;padding:17px;background:var(--terra);color:white;border:none;border-radius:3px;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition: background 0.2s;}
 .btn:hover{background:var(--terra-esc);}
+.aviso{margin-top:12px;font-size:11px;color:var(--text-muted);text-align:center;line-height:1.6}
 
 /* CARDS */
 .papeis{background:var(--creme2);padding:100px 64px}
@@ -92,16 +93,17 @@ footer p{font-size:11px;color:rgba(250,248,243,0.3);line-height:1.8}
 
   <div class="hero-dir" id="form">
     <div class="form-wrap">
-      <h2 class="form-titulo">Receba no WhatsApp</h2>
-      <p class="form-desc">Preencha abaixo para liberar seu acesso imediato ao material.</p>
+      <h2 class="form-titulo">Solicite pelo WhatsApp</h2>
+      <p class="form-desc">Preencha abaixo para enviar sua solicitação. Assim que possível, a Thays enviará o material para você.</p>
       <form onsubmit="enviar(event)">
         <div class="campo"><input type="text" id="nome" placeholder="Seu nome" required autocomplete="name"/></div>
         <div class="campo"><input type="tel" id="fone" placeholder="Seu WhatsApp (DDD + Número)" required autocomplete="tel"/></div>
         <div class="instrucao">
-          <p>💬 Ao clicar, abrirá seu WhatsApp com uma mensagem pronta. <strong>A Thays enviará o e-book na hora.</strong></p>
+          <p>💬 Ao clicar, você será redirecionada para o WhatsApp. <strong>A Thays fará o envio do e-book pessoalmente.</strong></p>
         </div>
-        <button type="submit" class="btn">Quero meu e-book grátis</button>
+        <button type="submit" class="btn">Solicitar e-book grátis</button>
       </form>
+      <p class="aviso">Gratuito · Sem spam</p>
     </div>
   </div>
 </section>
@@ -145,8 +147,7 @@ function enviar(e){
   const nome=document.getElementById('nome').value.trim();
   const fone=document.getElementById('fone').value.trim();
   if(!nome||!fone)return;
-  // Mensagem otimizada para identificar o lead e usar o atalho de teclado no iPhone
-  const msg=encodeURIComponent(`Olá Thays! Eu vi seu site e quero receber o e-book "Os 5 Papéis". Meu nome é ${nome}.`);
+  const msg=encodeURIComponent(`Olá Thays! Vi seu site e gostaria de receber o e-book "Os 5 Papéis". Meu nome é ${nome}.`);
   window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${msg}`,'_blank');
 }
 </script>
