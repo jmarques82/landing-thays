@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Os 5 Papéis que Estão Te Esgotando — Thays Moya</title>
+    <title>E-book Gratuito: Os 5 Papéis que Estão Te Esgotando — Thays Moya</title>
     <meta property="og:title" content="Os 5 Papéis que Estão Te Esgotando — E-book Gratuito">
     <meta property="og:description" content="Para a mulher que cuida de todos e esqueceu de si mesma. Identifique seus padrões com a psicóloga Thays Moya.">
     <meta property="og:type" content="website">
@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         :root{
@@ -21,37 +22,43 @@
         }
         body{font-family:'Jost',sans-serif;background:var(--creme);color:var(--text);overflow-x:hidden}
 
-        /* HERO - O Layout Verde que você gosta */
+        /* HERO - O Layout Split (Verde/Creme) */
         .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative}
-        .hero-esq{background:var(--verde-esc);padding:60px;display:flex;flex-direction:column;justify-content:center;color:#FAF8F3}
-        .hero-dir{background:var(--creme);padding:60px;display:flex;flex-direction:column;justify-content:center}
+        .hero-esq{background:var(--verde-esc);padding:80px 60px;display:flex;flex-direction:column;justify-content:center;color:#FAF8F3;position:relative}
+        .hero-dir{background:var(--creme);padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
 
-        .tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:20px;display:block}
-        .titulo{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);line-height:1.1;margin-bottom:20px}
+        .tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:24px;display:block;font-weight:500}
+        .titulo{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);line-height:1.05;margin-bottom:20px;font-weight:400}
         .titulo em{font-style:italic;color:var(--terra);display:block}
-        .subtitulo{font-family:'Playfair Display',serif;font-style:italic;opacity:0.7;margin-bottom:30px}
+        .subtitulo{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;opacity:0.7;margin-top:20px;max-width:400px;line-height:1.6}
 
         /* FORMULÁRIO */
-        .form-titulo{font-family:'Playfair Display',serif;font-size:28px;color:var(--verde-esc);margin-bottom:10px}
-        .form-desc{font-size:14px;color:var(--text-soft);margin-bottom:25px}
-        .campo input{width:100%;padding:15px;margin-bottom:15px;border:1px solid #ddd;border-radius:3px}
-        .btn{width:100%;padding:18px;background:var(--terra);color:white;border:none;border-radius:3px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:0.3s}
-        .btn:hover{background:#9E5A3F;transform:translateY(-2px)}
+        .form-wrap{max-width:400px}
+        .form-titulo{font-family:'Playfair Display',serif;font-size:32px;color:var(--verde-esc);margin-bottom:12px;font-weight:400}
+        .form-titulo em{font-style:italic;color:var(--terra)}
+        .form-desc{font-size:14px;color:var(--text-soft);margin-bottom:32px;font-weight:300}
+        .campo input{width:100%;padding:16px;margin-bottom:16px;border:1.5px solid #E8DFD0;border-radius:3px;font-family:'Jost',sans-serif;outline:none}
+        .campo input:focus{border-color:var(--verde-esc)}
+        
+        .btn{width:100%;padding:20px;background:var(--terra);color:white;border:none;border-radius:3px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:0.3s;font-family:'Jost',sans-serif}
+        .btn:hover{background:#9E5A3F;transform:translateY(-2px);box-shadow:0 10px 20px rgba(196,120,90,0.2)}
 
-        /* GRID DE CARDs */
-        .papeis{padding:100px 60px;background:var(--creme2)}
-        .grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:20px;max-width:1200px;margin:0 auto}
-        .card{background:var(--creme);padding:30px;border:1px solid rgba(0,0,0,0.05);border-radius:4px;transition:0.3s}
-        .card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.05)}
-        .card-num{font-family:'Playfair Display',serif;font-size:40px;color:rgba(38,68,56,0.2);margin-bottom:15px}
-        .card-titulo{font-family:'Playfair Display',serif;font-size:16px;color:var(--verde-esc);margin-bottom:10px}
-        .card-desc{font-size:12px;color:var(--text-soft);line-height:1.6}
+        /* SEÇÃO DE PADRÕES (Cards) */
+        .papeis{padding:100px 60px;background:var(--creme2);text-align:center}
+        .secao-titulo{font-family:'Playfair Display',serif;font-size:38px;color:var(--verde-esc);margin-bottom:50px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;max-width:1200px;margin:0 auto}
+        
+        .card{background:var(--creme);padding:40px 30px;border:1px solid rgba(0,0,0,0.05);border-radius:4px;transition:0.3s;text-align:left}
+        .card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(38,68,56,0.08);border-color:var(--terra)}
+        .card-num{font-family:'Playfair Display',serif;font-size:44px;color:rgba(38,68,56,0.15);margin-bottom:15px}
+        .card-titulo{font-family:'Playfair Display',serif;font-size:18px;color:var(--verde-esc);margin-bottom:12px;font-weight:500}
+        .card-desc{font-size:13px;color:var(--text-soft);line-height:1.7;font-weight:300}
 
-        footer{background:var(--verde-esc);padding:40px;text-align:center;color:rgba(250,248,243,0.4);font-size:11px}
+        footer{background:var(--verde-esc);padding:60px 20px;text-align:center;color:rgba(250,248,243,0.4);font-size:12px}
 
         @media(max-width:900px){
             .hero{grid-template-columns:1fr}
-            .hero-esq, .hero-dir{padding:40px 20px}
+            .hero-esq, .hero-dir{padding:60px 30px}
         }
     </style>
 </head>
@@ -61,28 +68,54 @@
     <div class="hero-esq">
         <span class="tag">E-book gratuito</span>
         <h1 class="titulo">Os 5 Papéis que <em>Estão Te Esgotando</em></h1>
-        <p class="subtitulo">Para a mulher que cuida de todo mundo — e esqueceu como cuidar de si.</p>
-        <p style="font-size:12px; opacity:0.6">Por <strong>Thays Fernanda Suci Moya Requena Marques</strong><br>Psicóloga CRP 14/06866-3</p>
+        <p class="subtitulo">Para a mulher que cuida de todo mundo — e esqueceu de si mesma.</p>
+        <p style="margin-top:40px; font-size:11px; opacity:0.5; letter-spacing:2px; text-transform:uppercase">
+            Por <strong>Thays Moya</strong> &nbsp;·&nbsp; Psicóloga CRP 14/06866-3
+        </p>
     </div>
 
-    <div class="hero-dir" id="form">
-        <h2 class="form-titulo">Receba no WhatsApp</h2>
-        <p class="form-desc">Preencha os dados e receba o material em segundos.</p>
-        <form onsubmit="enviar(event)">
-            <div class="campo"><input type="text" id="nome" placeholder="Seu nome" required></div>
-            <div class="campo"><input type="tel" id="fone" placeholder="Seu WhatsApp (com DDD)" required></div>
-            <button type="submit" class="btn">Quero meu e-book grátis</button>
-        </form>
+    <div class="hero-dir">
+        <div class="form-wrap">
+            <h2 class="form-titulo">Receba o material <em>no seu WhatsApp</em></h2>
+            <p class="form-desc">Preencha abaixo para identificar os padrões que estão pesando na sua rotina emocional.</p>
+            <form onsubmit="enviar(event)">
+                <div class="campo"><input type="text" id="nome" placeholder="Seu primeiro nome" required></div>
+                <div class="campo"><input type="tel" id="fone" placeholder="Seu WhatsApp com DDD" required></div>
+                <button type="submit" class="btn">Quero meu e-book grátis</button>
+            </form>
+            <p style="font-size:11px; color:#9B8F82; margin-top:15px; text-align:center">Gratuito · Envio imediato</p>
+        </div>
     </div>
 </section>
 
 <section class="papeis">
+    <h2 class="secao-titulo">O que você vai descobrir:</h2>
     <div class="grid">
-        <div class="card"><div class="card-num">01</div><h3 class="card-titulo">Gestão Solitária</h3><p class="card-desc">Quando você carrega a gestão mental da família inteira sozinha.</p></div>
-        <div class="card"><div class="card-num">02</div><h3 class="card-titulo">Terapeuta Familiar</h3><p class="card-desc">Quando o sofrimento dos outros vira sua responsabilidade única.</p></div>
-        <div class="card"><div class="card-num">03</div><h3 class="card-titulo">Culpa Sem Fim</h3><p class="card-desc">Aquela sensação de estar sempre em dívida, mesmo fazendo tudo.</p></div>
-        <div class="card"><div class="card-num">04</div><h3 class="card-titulo">Sonhos Adiados</h3><p class="card-desc">Seus projetos ficam sempre para o "depois" que nunca chega.</p></div>
-        <div class="card"><div class="card-num">05</div><h3 class="card-titulo">Cuidar de Si</h3><p class="card-desc">Onde o autocuidado é visto erroneamente como um ato egoísta.</p></div>
+        <div class="card">
+            <div class="card-num">01</div>
+            <h3 class="card-titulo">Gestão Solitária</h3>
+            <p class="card-desc">Quando você carrega a gestão mental da família inteira sozinha e o cansaço é de gerenciar.</p>
+        </div>
+        <div class="card">
+            <div class="card-num">02</div>
+            <h3 class="card-titulo">Terapeuta Familiar</h3>
+            <p class="card-desc">Quando o sofrimento dos outros se torna sua responsabilidade única e você se sente exausta.</p>
+        </div>
+        <div class="card">
+            <div class="card-num">03</div>
+            <h3 class="card-titulo">Culpa Sem Origem</h3>
+            <p class="card-desc">Aquela sensação de estar sempre em dívida, mesmo fazendo tudo o que é possível.</p>
+        </div>
+        <div class="card">
+            <div class="card-num">04</div>
+            <h3 class="card-titulo">Sonhos no "Depois"</h3>
+            <p class="card-desc">Quando seus projetos pessoais ficam sempre no final da lista e o "depois" nunca chega.</p>
+        </div>
+        <div class="card">
+            <div class="card-num">05</div>
+            <h3 class="card-titulo">Cuidar de Si</h3>
+            <p class="card-desc">A crença de que o autocuidado é egoísmo. Enquanto ela existir, os outros padrões continuam.</p>
+        </div>
     </div>
 </section>
 
