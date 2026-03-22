@@ -1,171 +1,375 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Círculo Inteira — Thays Moya | Psicóloga</title>
-  <meta name="description" content="Um espaço quinzenal para a mulher que carrega tudo — e quer aprender a voltar para si mesma. Com a psicóloga Thays Moya." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --creme: #F9F8F2; --bege: #EFEBDF; --terracota: #C4785A;
-      --verde-md: #3D6B4F; --verde-esc: #264438;
-      --texto: #6B6055; --marrom-sec: #9B8F82; --marrom-esc: #1C1A15;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--creme); color: var(--texto); font-family: 'Jost', sans-serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    .hero { background: var(--verde-esc); min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px 80px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(196,120,90,.18) 0%, transparent 70%); pointer-events: none; }
-    .hero-tag { display: inline-block; border: 1px solid rgba(196,120,90,.5); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 6px 18px; border-radius: 100px; margin-bottom: 32px; animation: fadeUp .8s ease both; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px,8vw,68px); font-weight: 300; color: var(--creme); line-height: 1.15; max-width: 700px; margin-bottom: 24px; animation: fadeUp .9s .1s ease both; }
-    .hero h1 em { font-style: italic; color: var(--terracota); }
-    .hero-sub { font-size: clamp(15px,2.5vw,17px); color: rgba(249,248,242,.65); max-width: 480px; margin-bottom: 48px; animation: fadeUp 1s .2s ease both; }
-    .btn-primary { display: inline-block; background: var(--terracota); color: var(--creme); font-size: 14px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; padding: 18px 44px; border-radius: 4px; transition: background .25s, transform .2s; animation: fadeUp 1s .3s ease both; }
-    .btn-primary:hover { background: #b5694c; transform: translateY(-2px); }
-    .hero-crp { margin-top: 28px; font-size: 11px; color: rgba(249,248,242,.3); letter-spacing: .08em; animation: fadeUp 1s .4s ease both; }
-    .dor { background: var(--bege); padding: 80px 24px; }
-    .container { max-width: 640px; margin: 0 auto; }
-    .section-label { font-size: 10px; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; color: var(--terracota); margin-bottom: 20px; }
-    .dor h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,5vw,42px); font-weight: 300; color: var(--marrom-esc); line-height: 1.3; margin-bottom: 28px; }
-    .dor p { font-size: 16px; color: var(--texto); margin-bottom: 16px; }
-    .dor-lista { list-style: none; margin: 32px 0; }
-    .dor-lista li { display: flex; align-items: flex-start; gap: 14px; font-size: 15px; color: var(--texto); padding: 12px 0; border-bottom: 1px solid rgba(155,143,130,.2); }
-    .dor-lista li:last-child { border-bottom: none; }
-    .dor-lista li::before { content: '—'; color: var(--terracota); flex-shrink: 0; margin-top: 2px; }
-    .oque { background: var(--creme); padding: 80px 24px; }
-    .oque h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,5vw,46px); font-weight: 300; color: var(--marrom-esc); line-height: 1.25; margin-bottom: 24px; }
-    .oque h2 em { font-style: italic; color: var(--verde-md); }
-    .oque p { font-size: 16px; color: var(--texto); margin-bottom: 16px; }
-    .destaque-quote { border-left: 3px solid var(--terracota); padding: 20px 24px; margin: 36px 0; background: var(--bege); border-radius: 0 6px 6px 0; }
-    .destaque-quote p { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px,3.5vw,26px); font-weight: 300; font-style: italic; color: var(--marrom-esc); line-height: 1.5; margin: 0; }
-    .como { background: var(--verde-esc); padding: 80px 24px; }
-    .como .section-label { color: rgba(196,120,90,.8); }
-    .como h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,5vw,42px); font-weight: 300; color: var(--creme); margin-bottom: 48px; }
-    .como-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-    .como-item { background: rgba(249,248,242,.05); padding: 28px 24px; border: 1px solid rgba(249,248,242,.08); }
-    .como-item:first-child { border-radius: 8px 0 0 0; } .como-item:nth-child(2) { border-radius: 0 8px 0 0; } .como-item:nth-child(3) { border-radius: 0 0 0 8px; } .como-item:last-child { border-radius: 0 0 8px 0; }
-    .como-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--terracota); opacity: .6; line-height: 1; margin-bottom: 10px; }
-    .como-titulo { font-size: 13px; font-weight: 500; letter-spacing: .08em; color: var(--creme); margin-bottom: 6px; }
-    .como-desc { font-size: 13px; color: rgba(249,248,242,.5); line-height: 1.6; }
-    .paraquem { background: var(--bege); padding: 80px 24px; }
-    .paraquem h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,5vw,42px); font-weight: 300; color: var(--marrom-esc); margin-bottom: 36px; }
-    .paraquem-lista { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .paraquem-lista li { font-size: 15px; color: var(--texto); padding: 16px 20px; background: var(--creme); border-radius: 6px; border-left: 3px solid var(--verde-md); }
-    .preco { background: var(--creme); padding: 80px 24px; text-align: center; }
-    .preco h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,5vw,42px); font-weight: 300; color: var(--marrom-esc); margin-bottom: 12px; }
-    .preco-box { display: inline-block; border: 1px solid rgba(196,120,90,.3); border-radius: 12px; padding: 40px 48px; margin: 36px auto; background: var(--bege); }
-    .preco-de { font-size: 15px; color: var(--marrom-sec); text-decoration: line-through; margin-bottom: 4px; }
-    .preco-valor { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: var(--marrom-esc); line-height: 1; }
-    .preco-valor sup { font-size: 24px; vertical-align: super; line-height: 0; }
-    .preco-valor span { font-size: 18px; color: var(--marrom-sec); }
-    .preco-nota { font-size: 13px; color: var(--marrom-sec); margin-top: 12px; }
-    .preco-includes { list-style: none; margin: 28px 0; display: flex; flex-direction: column; gap: 10px; text-align: left; }
-    .preco-includes li { font-size: 14px; color: var(--texto); display: flex; align-items: center; gap: 10px; }
-    .preco-includes li::before { content: '✓'; color: var(--verde-md); font-weight: 500; flex-shrink: 0; }
-    .btn-cta-grande { display: inline-block; background: var(--terracota); color: var(--creme); font-size: 15px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: 20px 56px; border-radius: 4px; transition: background .25s, transform .2s; margin-top: 12px; }
-    .btn-cta-grande:hover { background: #b5694c; transform: translateY(-2px); }
-    .preco-crp { font-size: 11px; color: var(--marrom-sec); margin-top: 20px; letter-spacing: .06em; }
-    footer { background: var(--marrom-esc); padding: 32px 24px; text-align: center; }
-    footer p { font-size: 12px; color: rgba(249,248,242,.3); letter-spacing: .06em; }
-    .wa-float { position: fixed; bottom: 28px; right: 24px; z-index: 999; }
-    .wa-float a { display: flex; align-items: center; gap: 10px; background: #25D366; color: #fff; text-decoration: none; padding: 14px 20px; border-radius: 100px; font-size: 13px; font-weight: 500; box-shadow: 0 4px 20px rgba(37,211,102,.35); transition: transform .2s, box-shadow .2s; }
-    .wa-float a:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(37,211,102,.4); }
-    .wa-icon { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
-    .divider { width: 48px; height: 1px; background: var(--terracota); margin: 0 0 32px; opacity: .5; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 480px) { .como-grid { grid-template-columns: 1fr; } .como-item { border-radius: 0 !important; } .preco-box { padding: 32px 24px; } .preco-valor { font-size: 52px; } .wa-float a { padding: 14px 16px; } .wa-label { display: none; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Círculo Inteira — Thays Moya | Psicóloga</title>
+<meta name="description" content="Um espaço quinzenal ao vivo para a mulher que carrega tudo — e quer aprender a existir sem se perder no processo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --fundo: #F9F8F2;
+    --fundo2: #EFEBDF;
+    --terracota: #C4785A;
+    --verde-medio: #3D6B4F;
+    --verde-escuro: #264438;
+    --texto: #6B6055;
+    --marrom2: #9B8F82;
+    --marrom-escuro: #1C1A15;
+    --borda: rgba(196,120,90,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* —— HERO —— */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    background: var(--verde-escuro);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(196,120,90,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(61,107,79,0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracota);
+    font-weight: 500;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 300;
+    color: var(--fundo);
+    line-height: 1.15;
+    max-width: 700px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.35s forwards;
+  }
+
+  .hero h1 em { font-style: italic; color: #D4A07A; }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(239,235,223,0.7);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 44px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--terracota);
+    color: var(--fundo);
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 44px;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.65s forwards;
+  }
+
+  .btn-primary:hover { background: #B5673B; transform: translateY(-2px); }
+
+  .hero-crp {
+    margin-top: 28px;
+    font-size: 12px;
+    color: rgba(239,235,223,0.35);
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+  }
+
+  /* —— SEÇÕES —— */
+  .section { padding: 80px 24px; }
+  .container { max-width: 720px; margin: 0 auto; }
+  .container-wide { max-width: 960px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracota);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    color: var(--marrom-escuro);
+    line-height: 1.25;
+    margin-bottom: 32px;
+  }
+
+  .section-title em { font-style: italic; color: var(--terracota); }
+
+  .section-body {
+    font-size: 16px;
+    color: var(--texto);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .dores-bg { background: var(--fundo2); }
+
+  .dores-list {
+    list-style: none;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .dores-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--borda);
+    font-size: 16px;
+    color: var(--marrom-escuro);
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    line-height: 1.6;
+  }
+
+  .dores-list li::before {
+    content: '—';
+    color: var(--terracota);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .dores-footer {
+    margin-top: 32px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--verde-medio);
+  }
+
+  .oque-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--verde-escuro);
+    line-height: 1.5;
+    padding: 32px;
+    border-left: 2px solid var(--terracota);
+    background: var(--fundo2);
+  }
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Círculo Inteira — Thays Moya | Psicóloga</title>
+<meta name="description" content="Um espaço quinzenal ao vivo para a mulher que carrega tudo — e quer aprender a existir sem se perder no processo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after{margin:0;padding:0;box-sizing:border-box}
+:root{--fundo:#F9F8F2;--fundo2:#EFEBDF;--terracota:#C4785A;--verde-medio:#3D6B4F;--verde-escuro:#264438;--texto:#6B6055;--marrom2:#9B8F82;--marrom-escuro:#1C1A15;--borda:rgba(196,120,90,0.18)}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--fundo);color:var(--texto);line-height:1.7;overflow-x:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 24px 60px;background:var(--verde-escuro);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(196,120,90,0.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 80% 20%,rgba(61,107,79,0.3) 0%,transparent 60%);pointer-events:none}
+.hero-eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--terracota);font-weight:500;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s 0.2s forwards}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,7vw,72px);font-weight:300;color:var(--fundo);line-height:1.15;max-width:700px;margin-bottom:24px;opacity:0;animation:fadeUp 0.9s 0.35s forwards}
+.hero h1 em{font-style:italic;color:#D4A07A}
+.hero-sub{font-size:16px;color:rgba(239,235,223,0.7);max-width:520px;line-height:1.75;margin-bottom:44px;font-weight:300;opacity:0;animation:fadeUp 0.9s 0.5s forwards}
+.btn-primary{display:inline-block;background:var(--terracota);color:var(--fundo);font-size:14px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;padding:18px 44px;border-radius:2px;transition:background 0.25s,transform 0.2s;opacity:0;animation:fadeUp 0.9s 0.65s forwards}
+.btn-primary:hover{background:#B5673B;transform:translateY(-2px)}
+.hero-crp{margin-top:28px;font-size:12px;color:rgba(239,235,223,0.35);letter-spacing:1px;opacity:0;animation:fadeUp 0.9s 0.8s forwards}
+.section{padding:80px 24px}
+.container{max-width:720px;margin:0 auto}
+.container-wide{max-width:960px;margin:0 auto}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terracota);font-weight:500;margin-bottom:16px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--marrom-escuro);line-height:1.25;margin-bottom:32px}
+.section-title em{font-style:italic;color:var(--terracota)}
+.section-body{font-size:16px;color:var(--texto);line-height:1.8;margin-bottom:24px;font-weight:300}
+.dores-bg{background:var(--fundo2)}
+.dores-list{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:0}
+.dores-list li{padding:20px 0;border-bottom:1px solid var(--borda);font-size:16px;color:var(--marrom-escuro);font-weight:300;display:flex;align-items:flex-start;gap:16px;line-height:1.6}
+.dores-list li::before{content:'—';color:var(--terracota);flex-shrink:0;margin-top:2px}
+.dores-footer{margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--verde-medio)}
+.oque-quote{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:300;color:var(--verde-escuro);line-height:1.5;padding:32px;border-left:2px solid var(--terracota);background:var(--fundo2)}
+.como-bg{background:var(--verde-escuro)}
+.como-bg .section-title{color:var(--fundo)}
+.como-bg .eyebrow{color:#D4A07A}
+.passos{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:48px}
+@media(max-width:640px){.passos{grid-template-columns:1fr}}
+.passo{background:rgba(255,255,255,0.04);padding:36px 32px;border:1px solid rgba(255,255,255,0.06);transition:background 0.2s}
+.passo:hover{background:rgba(255,255,255,0.07)}
+.passo-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(196,120,90,0.4);line-height:1;margin-bottom:16px}
+.passo h3{font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--fundo);margin-bottom:12px}
+.passo p{font-size:15px;color:rgba(239,235,223,0.6);font-weight:300;line-height:1.7}
+.paraquem-list{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:16px}
+.paraquem-list li{font-size:16px;color:var(--marrom-escuro);font-weight:300;display:flex;align-items:flex-start;gap:16px;line-height:1.65;padding:20px 24px;background:var(--fundo2);border-radius:2px}
+.paraquem-list li span.check{color:var(--verde-medio);font-size:18px;flex-shrink:0;margin-top:1px}
+.preco-bg{background:var(--fundo2)}
+.preco-card{max-width:480px;margin:48px auto 0;background:var(--fundo);border:1px solid var(--borda);padding:48px 40px;text-align:center}
+.preco-de{font-size:14px;color:var(--marrom2);text-decoration:line-through;margin-bottom:6px;font-weight:300}
+.preco-por{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:var(--marrom-escuro);line-height:1;margin-bottom:4px}
+.preco-por span{font-size:24px;vertical-align:super;font-weight:400}
+.preco-periodo{font-size:13px;color:var(--marrom2);margin-bottom:8px;font-weight:300;letter-spacing:1px}
+.preco-cancel{font-size:12px;color:var(--verde-medio);margin-bottom:32px;font-weight:400}
+.preco-itens{list-style:none;text-align:left;margin-bottom:40px;display:flex;flex-direction:column;gap:14px}
+.preco-itens li{font-size:15px;color:var(--texto);font-weight:300;display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--borda)}
+.preco-itens li:last-child{border-bottom:none;padding-bottom:0}
+.preco-itens li::before{content:'✦';color:var(--terracota);font-size:10px;flex-shrink:0;margin-top:5px}
+.btn-preco{display:block;background:var(--terracota);color:var(--fundo);font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:18px 32px;border-radius:2px;transition:background 0.25s,transform 0.2s;width:100%;text-align:center}
+.btn-preco:hover{background:#B5673B;transform:translateY(-2px)}
+.preco-crp{margin-top:20px;font-size:11px;color:var(--marrom2);letter-spacing:0.5px;font-weight:300}
+footer{background:var(--marrom-escuro);padding:40px 24px;text-align:center}
+footer p{font-size:12px;color:rgba(239,235,223,0.3);line-height:2;font-weight:300}
+footer a{color:var(--terracota);text-decoration:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:480px){.section{padding:60px 20px}.preco-card{padding:36px 24px}.preco-por{font-size:48px}.oque-quote{font-size:19px;padding:24px}.passo{padding:28px 24px}}
+</style>
 </head>
 <body>
-  <section class="hero">
-    <span class="hero-tag">Círculo Inteira</span>
-    <h1>O caminho de volta<br>para <em>você mesma</em></h1>
-    <p class="hero-sub">Um espaço quinzenal ao vivo para a mulher que carrega tudo — e quer aprender a existir sem se perder no processo.</p>
-    <a href="https://lastlink.com/p/CDE573E1E/" class="btn-primary" target="_blank" rel="noopener">Quero entrar no Círculo</a>
-    <p class="hero-crp">Thays Moya — Psicóloga CRP 14/06866-3</p>
-  </section>
-  <section class="dor">
-    <div class="container">
-      <p class="section-label">Você se reconhece aqui?</p>
-      <h2>Quando cuidar de tudo<br>custa tudo que você tem</h2>
-      <p>Você acorda cansada mesmo depois de dormir. Sorri pra todo mundo enquanto carrega um peso que ninguém vê. Resolve, organiza, apoia — e quando sobra um minuto, não sabe mais quem você é fora do papel que representa.</p>
-      <ul class="dor-lista">
-        <li>Você se sente sobrecarregada mesmo quando "não tem motivo"</li>
-        <li>Oscila entre controlar tudo e se sentir completamente perdida</li>
-        <li>Coloca os outros na frente — e se culpa quando faz o contrário</li>
-        <li>Sente que algo está errado mas não consegue nomear o quê</li>
-        <li>Já tentou terapia, leitura, podcast — e ainda assim algo falta</li>
+<section class="hero">
+  <p class="hero-eyebrow">Círculo Inteira — Thays Moya</p>
+  <h1>O caminho de volta<br>para <em>você mesma</em></h1>
+  <p class="hero-sub">Um espaço quinzenal ao vivo para a mulher que carrega tudo — e quer aprender a existir sem se perder no processo.</p>
+  <a href="https://lastlink.com/p/CDE573E1E/" class="btn-primary">Quero entrar no Círculo</a>
+  <p class="hero-crp">Thays Moya — Psicóloga CRP 14/06866-3</p>
+</section>
+<section class="section dores-bg">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Você se reconhece aqui?</p>
+      <h2 class="section-title">Quando cuidar de tudo<br>custa tudo que <em>você tem</em></h2>
+      <p class="section-body">Você acorda cansada mesmo depois de dormir. Sorri pra todo mundo enquanto carrega um peso que ninguém vê. Resolve, organiza, apoia — e quando sobra um minuto, não sabe mais quem você é fora do papel que representa.</p>
+    </div>
+    <ul class="dores-list reveal">
+      <li>Você se sente sobrecarregada mesmo quando "não tem motivo"</li>
+      <li>Oscila entre controlar tudo e se sentir completamente perdida</li>
+      <li>Coloca os outros na frente — e se culpa quando faz o contrário</li>
+      <li>Sente que algo está errado mas não consegue nomear o quê</li>
+      <li>Já tentou terapia, leitura, podcast — e ainda assim algo falta</li>
+    </ul>
+    <p class="dores-footer reveal">Esse padrão tem origem. E tem caminho de volta.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">O que é o Círculo Inteira</p>
+      <h2 class="section-title">Um grupo ao vivo.<br><em>Uma jornada de reconexão.</em></h2>
+      <p class="section-body">O Círculo Inteira é um encontro quinzenal ao vivo conduzido pela psicóloga Thays Moya — com base no Método Inteira, uma abordagem clínica integrativa que une Visão Sistêmica, Gestalt-terapia e Neurociência.</p>
+      <p class="section-body">Não é um curso. Não é uma palestra. É um espaço onde você aprende a olhar para os padrões que te prendem — e começa a construir uma relação diferente com você mesma.</p>
+    </div>
+    <blockquote class="oque-quote reveal">"Para a mulher que quer voltar para o seu lugar — com clareza e leveza."</blockquote>
+    <p class="section-body reveal" style="margin-top:32px">Cada encontro aborda um tema científico real: neurociência das emoções, padrões herdados da família, sobrecarga sistêmica, limites, identidade.</p>
+  </div>
+</section>
+<section class="section como-bg">
+  <div class="container-wide">
+    <div class="reveal" style="text-align:center">
+      <p class="eyebrow">Como funciona</p>
+      <h2 class="section-title">Simples. Consistente. <em style="color:#D4A07A">Profundo.</em></h2>
+    </div>
+    <div class="passos reveal">
+      <div class="passo"><div class="passo-num">01</div><h3>Encontros quinzenais</h3><p>1 hora ao vivo no Zoom. Quintas às 14h30 (horário de Brasília).</p></div>
+      <div class="passo"><div class="passo-num">02</div><h3>Temas científicos</h3><p>Profundidade científica, sem conteúdo motivacional. Base no Método INTEIRA.</p></div>
+      <div class="passo"><div class="passo-num">03</div><h3>Gravações disponíveis</h3><p>Não pôde ao vivo? A gravação fica disponível para você assistir quando puder.</p></div>
+      <div class="passo"><div class="passo-num">04</div><h3>Comunidade entre encontros</h3><p>Espaço de acolhimento e continuidade entre os encontros quinzenais.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Para quem é</p>
+      <h2 class="section-title">O Círculo é para você <em>se...</em></h2>
+    </div>
+    <ul class="paraquem-list reveal">
+      <li><span class="check">✦</span> Você sente que vive no automático e quer retomar consciência sobre sua vida</li>
+      <li><span class="check">✦</span> Quer entender os padrões emocionais que se repetem — na família, no trabalho, nos relacionamentos</li>
+      <li><span class="check">✦</span> Busca profundidade científica, sem conteúdo motivacional</li>
+      <li><span class="check">✦</span> Deseja se reconectar com quem você é além dos papéis que desempenha</li>
+      <li><span class="check">✦</span> Já faz ou já fez terapia — e quer um espaço complementar de aprofundamento</li>
+    </ul>
+  </div>
+</section>
+<section class="section preco-bg">
+  <div class="container" style="text-align:center">
+    <div class="reveal">
+      <p class="eyebrow">Faça parte</p>
+      <h2 class="section-title">Primeiro passo no<br><em>Círculo Inteira</em></h2>
+    </div>
+    <div class="preco-card reveal">
+      <p class="preco-de">de R$ 247,00</p>
+      <p class="preco-por"><span>R$</span>97</p>
+      <p class="preco-periodo">/mês</p>
+      <p class="preco-cancel">Cancele quando quiser. Sem fidelidade.</p>
+      <ul class="preco-itens">
+        <li>Encontros quinzenais ao vivo com Thays Moya</li>
+        <li>Gravações de todos os encontros</li>
+        <li>Temas científicos baseados no Método INTEIRA</li>
+        <li>Comunidade de continuidade entre encontros</li>
       </ul>
-      <p>Esse padrão tem origem. E tem caminho de volta.</p>
-    </div>
-  </section>
-  <section class="oque">
-    <div class="container">
-      <div class="divider"></div>
-      <p class="section-label">O que é o Círculo Inteira</p>
-      <h2>Um grupo ao vivo.<br><em>Uma jornada de reconexão.</em></h2>
-      <p>O Círculo Inteira é um encontro quinzenal ao vivo conduzido pela psicóloga Thays Moya — com base no Método Inteira, uma abordagem clínica integrativa que une Visão Sistêmica, Gestalt-terapia e Neurociência.</p>
-      <p>Não é um curso. Não é uma palestra. É um espaço onde você aprende a olhar para os padrões que te prendem — e começa a construir uma relação diferente com você mesma.</p>
-      <div class="destaque-quote"><p>"Para a mulher que quer voltar para o seu lugar — com clareza e leveza."</p></div>
-      <p>Cada encontro aborda um tema científico real: neurociência das emoções, padrões herdados da família, sobrecarga sistêmica, limites, identidade. Conteúdo que faz sentido em qualquer momento.</p>
-    </div>
-  </section>
-  <section class="como">
-    <div class="container">
-      <p class="section-label">Como funciona</p>
-      <h2>Simples. Consistente.<br>Profundo.</h2>
-      <div class="como-grid">
-        <div class="como-item"><div class="como-num">01</div><div class="como-titulo">Encontros quinzenais</div><div class="como-desc">1 hora ao vivo no Zoom. Quintas às 14h30 (horário de Brasília).</div></div>
-        <div class="como-item"><div class="como-num">02</div><div class="como-titulo">Temas científicos</div><div class="como-desc">Profundidade científica, sem conteúdo motivacional. Base no Método INTEIRA.</div></div>
-        <div class="como-item"><div class="como-num">03</div><div class="como-titulo">Gravações disponíveis</div><div class="como-desc">Não pôde ao vivo? A gravação fica disponível para você assistir quando puder.</div></div>
-        <div class="como-item"><div class="como-num">04</div><div class="como-titulo">Comunidade entre encontros</div><div class="como-desc">Espaço de acolhimento e continuidade entre os encontros quinzenais.</div></div>
-      </div>
-    </div>
-  </section>
-  <section class="paraquem">
-    <div class="container">
-      <div class="divider"></div>
-      <p class="section-label">Para quem é</p>
-      <h2>O Círculo é para você se...</h2>
-      <ul class="paraquem-lista">
-        <li>Você sente que vive no automático e quer retomar consciência sobre sua vida</li>
-        <li>Quer entender os padrões emocionais que se repetem — na família, no trabalho, nos relacionamentos</li>
-        <li>Busca profundidade científica, sem conteúdo motivacional</li>
-        <li>Deseja se reconectar com quem você é além dos papéis que desempenha</li>
-        <li>Já faz ou já fez terapia — e quer um espaço complementar de aprofundamento</li>
-      </ul>
-    </div>
-  </section>
-  <section class="preco">
-    <div class="container">
-      <p class="section-label">Faça parte</p>
-      <h2>Primeiro passo no Círculo Inteira</h2>
-      <div class="preco-box">
-        <p class="preco-de">de R$ 247,00</p>
-        <div class="preco-valor"><sup>R$</sup>97<span>/mês</span></div>
-        <p class="preco-nota">Cancele quando quiser. Sem fidelidade.</p>
-        <ul class="preco-includes">
-          <li>Encontros quinzenais ao vivo com Thays Moya</li>
-          <li>Gravações de todos os encontros</li>
-          <li>Temas científicos baseados no Método INTEIRA</li>
-          <li>Comunidade de continuidade entre encontros</li>
-        </ul>
-        <a href="https://lastlink.com/p/CDE573E1E/" class="btn-cta-grande" target="_blank" rel="noopener">Quero entrar no Círculo</a>
-      </div>
+      <a href="https://lastlink.com/p/CDE573E1E/" class="btn-preco">Quero entrar no Círculo</a>
       <p class="preco-crp">Thays Moya — Psicóloga CRP 14/06866-3 · Conteúdo informativo. Não substitui acompanhamento clínico individual.</p>
     </div>
-  </section>
-  <footer>
-    <p>© 2026 Thays Moya · Psicóloga CRP 14/06866-3 · Método Inteira</p>
-  </footer>
-  <div class="wa-float">
-    <a href="https://wa.me/5567935016168?text=Oi%2C%20tenho%20d%C3%BAvidas%20sobre%20o%20C%C3%ADrculo%20Inteira" target="_blank" rel="noopener" aria-label="Suporte WhatsApp">
-      <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span class="wa-label">Dúvidas? Fala comigo</span>
-    </a>
   </div>
+</section>
+<footer>
+  <p>© 2026 Thays Moya · Psicóloga CRP 14/06866-3 · Método Inteira</p>
+  <p style="margin-top:8px"><a href="https://wa.me/5567935016168?text=Oi%2C%20tenho%20d%C3%BAvidas%20sobre%20o%20C%C3%ADrculo%20Inteira">Dúvidas? Fala comigo</a></p>
+</footer>
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 </body>
-  </html>
+</html>
